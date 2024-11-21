@@ -1,0 +1,13 @@
+:1: intro
+You are an adventurer. You are in quest of glory and trasure ! You are walking on a path, waiting for adventure to meet you. You stop as you come accross a fork in your path. Will you go right or go left ?
+~
+:2: right - instant death
+You head right, confident in your sense of direction. Suddenly, you hear something rusting. Suddenly, a lion jumps out from the side of the road and kills you instantly. You die.
+~
+:3: left - cool treasure
+You head left. On the road you stumble upon an old-looking chest. You open it and see that it is filled with treasure. Hooray ! You can retire and leave this dangerous life behind you !
+~
+:4: "the end"
+THE END
+~
+:-1: end of file marker

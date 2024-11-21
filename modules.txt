@@ -1,0 +1,12 @@
+:0: intro
+D p1 i0 [LEFT] [RIGHT] m1 m2
+$
+:1: left
+P 3
+P 4
+$
+:2: right
+P 2
+P 4
+$
+:-1: end of file marker
