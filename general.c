@@ -81,7 +81,8 @@
 #define FINMODULE '$'   // ce symbole ne devrait pas être lu : on passe à un autre module avant. si il est atteint, faire apparaître un message d'erreur, puis quitter le programme
 #define RANDOMSCENE 'R' // joue une scène ou une autre selon un tirage aléatoire (à implémenter)
 #define FIGHT 'F'       // démarre le combat de numéro donné | format : F 30
-
+#define COMMENTAIRE '#' // le lecteur de module ignorera la ligne à partir de ce caractère
+#define EVENTANDEVENT 'N' // vérifie la condition event1 ET event2, et envoie vers un module si la condition est remplie
 
 // caractères spéciaux pour lecture combat
 #define PATHOS 'P'
@@ -577,7 +578,7 @@ int MenuChoixLinux(char * str1, char * str2, char *textfile, int id_text, char *
 
     LireImage(id_image, imagefile);
     LirePassage(id_text, textfile);
-    printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoice : ", str1, str2);
+    printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoix : ", str1, str2);
     char verif = 0;
     while (!verif)
     {
@@ -597,7 +598,7 @@ int MenuChoixLinux(char * str1, char * str2, char *textfile, int id_text, char *
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoice : ", str1, str2);
+            printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoix : ", str1, str2);
             fflush(stdin);
         }
     }
@@ -620,7 +621,7 @@ int MenuFourcheLinux(char * str1, char * str2, char * str3, char *textfile, int 
         LirePassageInstantane(id_text, textfile);
     else LirePassage(id_text, textfile);
 
-    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoice : ", str1, str2, str3);
+    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoix : ", str1, str2, str3);
     char verif = 0;
     while (!verif)
     {
@@ -644,7 +645,7 @@ int MenuFourcheLinux(char * str1, char * str2, char * str3, char *textfile, int 
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoice : ", str1, str2, str3);
+            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoix : ", str1, str2, str3);
             fflush(stdin);
         }
     }
@@ -666,7 +667,7 @@ int MenuQuatreLinux(char * str1, char * str2, char * str3, char * str4, char *te
         LirePassageInstantane(id_text, textfile);
     else LirePassage(id_text, textfile);
 
-    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
+    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
     char verif = 0;
     while (!verif)
     {
@@ -694,7 +695,7 @@ int MenuQuatreLinux(char * str1, char * str2, char * str3, char * str4, char *te
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
+            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
             fflush(stdin);
         }
     }
@@ -734,7 +735,7 @@ void Save(char *savefile, int id_module, char *events, char *inventaire)
     fclose(f);
 }
 
-// si cette fonction est utilisée avec l'inventaire comme paramètre, alors elle vérifie la présence d'un objet dans l'inventaire. renvoie vers module1 si l'évènement vaut 1.
+// si cette fonction est utilisée avec l'inventaire comme paramètre, alors elle vérifie la présence d'un objet dans l'inventaire. renvoie 1 si l'évènement vaut 1.
 int CheckForEvent(int id_event, char *events) // renvoie 0(true), si l'event indiqué est dans a sauvegarde, renvoie 1(false) sinon (à implémenter)
 {
     int ret;
@@ -953,7 +954,7 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                     printf("\n--------------------------------------------------------\n");
                     printf("               Crédibilité : %d%%", cred);
                     printf("\n--------------------------------------------------------\n");
-                    printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
+                    printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
                     char verif = 0;
                     while (!verif)
                     {
@@ -997,7 +998,7 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                             printf("\n--------------------------------------------------------\n");
                             printf("               Crédibilité : %d%%", cred);
                             printf("\n--------------------------------------------------------\n");
-                            printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
+                            printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
                             fflush(stdin);
                         }
                     }
@@ -1145,6 +1146,7 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
         int id_module_precedent = 0; // sauvegarde en mémoire le module précédent.
 
         char str1[50], str2[50], str3[50], str4[50];
+        char chr1,chr2;
         int id_image;
         int id_passage;
         int id_passage1, id_image1, id_passage2, id_image2; // id1 et id2 servent pour les scènes alternatives
@@ -1162,7 +1164,9 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
         char c = fgetc(f);
         while (c != FINMODULE && c != EOF)
         {
-            if (c == SAVING)
+            if (c == COMMENTAIRE)
+                skipUntilChar(f, '\n');
+            else if (c == SAVING)
                 Save(SAVE, id_module, events, inventaire);
             else if (c == LIRESCENE)
             {
@@ -1395,6 +1399,30 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
                 else
                     LireScene2(id_image2, id_passage2, IMAGES, SCRIPT);
             }
+            else if (c == EVENTANDEVENT)
+            {
+                fscanf(f, " %c%d AND %c%d m%d", &chr1, &id_event, &chr2, &id_passage1, &id_module1);
+
+                if (chr1 == 'e') id_image1 = CheckForEvent(id_event, events); 
+                else if (chr1 == 'o') id_image1 = CheckForEvent(id_event, inventaire);
+                if (chr2 == 'e') id_image2 = CheckForEvent(id_passage1, events);
+                else if (chr2 == 'o') id_image2 = CheckForEvent(id_passage1, inventaire);
+
+                if(id_image1 && id_image2)
+                {
+                    id_module = id_module1;
+                    rewind(f);              // permet de revenir au début du fichier
+                    fscanf(f, ":%d:", &id); // cherche le bon module
+                    skipUntilChar(f, '\n'); // skips module title/description
+                    while (id != id_module && id != ID_END)
+                    {
+                        skipUntilChar(f, FINMODULE);
+                        skipUntilChar(f, '\n');
+                        fscanf(f, ":%d:", &id);
+                        skipUntilChar(f, '\n');
+                    }
+                }
+            }
             else if (c == INVENTAIRE)
             {
                 ConsulterInventaire(inventaire);
@@ -1419,7 +1447,7 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
             c = fgetc(f);
         }
 
-        //printf("\n\nfin de branche atteinte\n");
+        printf("\n\nfin de branche atteinte\n");
         pressEnter();
     }
     else
