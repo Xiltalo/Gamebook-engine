@@ -104,7 +104,7 @@ Then you can click on it, or execute it from the terminal directly.
 
 ### What it looks like 
 
-Inline-style: 
+In windows :
 ![alt text](./screenshots/1.png "screenshot 1")
 
 ![alt text](./screenshots/2.png "screenshot 1")
