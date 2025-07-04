@@ -257,11 +257,12 @@ Y p13 i5 [LEFT DOOR] [MIDDLE DOOR] [RIGHT DOOR] m7 m8 m9
 $
 ```
 
-This reads a different set of text+image depending on whether event 1 is true or not.
+The line `U e1 0 p8 i5 1 p9 i5` reads a different set of text+image depending on whether event 1 is true or not.
 Here, there is a text to describe the doors. However when the player comes back to this place, we want the description to be shorter. Therefore in the second line we record the event 1, aka "this text has been read before".
+The line thus translates to `if event 1 is false read version 1, else read version 2`
 When the player comes to this module again, event 1 will be true and a shorter description will be read.
 
-The line `Y p13 i5 [LEFT DOOR] [MIDDLE DOOR] [RIGHT DOOR] m7 m8 m9` is a triple choice. It works the same as the first choice, but with three options. There is a version with four opions also.
+The line `Y p13 i5 [LEFT DOOR] [MIDDLE DOOR] [RIGHT DOOR] m7 m8 m9` is a triple choice. It works the same as the choice with two options, but with three options. There is a version with four opions also.
 
 #### Conditional module switch
 
@@ -284,7 +285,7 @@ $
 ```
 
 
-The line `L 20 m13 m12` generates a random number between 0 and 100. If the number is lower than 15, the engine goes to module 13. Else it goes to module 12. 
+The line `L 15 m13 m12` generates a random number between 0 and 100. If the number is lower than 15, the engine goes to module 13. Else it goes to module 12. 
 This is a good way to have random events happend in your adventure.
 In the context of this example :
 
