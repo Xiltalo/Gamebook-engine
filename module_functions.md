@@ -69,12 +69,12 @@ For example, consider the following sentence :
 "Hello \`\`\`\` ...Goodbye."
 
 The engine will read "Hello" then pause for a duration of four times the reading delay, before printing the "...Goodbye".
-For examples of the CHANGEIMAGE character, see the `script.txt` of the Example Adventure.
+For examples of the CHANGEIMAGE character, see the `script.txt` of this repository.
 
 ## modules.txt
 
 This is by far the most complex file, because of its wide number of functions, and their sometimes less-than-friendly syntax.
-Each module starts with an id, like in `images.txt` and `script.txt`. A module ends with the "$" character. the next module \:id\: must be on the very next line after the "$" character.
+Each module starts with an id, like in `images.txt` and `script.txt`. A module ends with the "$" character. the next module `:id:` must be on the very next line after the "$" character.
 In most places, you can add commentaries for your file. a commentary starts with the "#" character. It is useful to reread yourself and work more efficiently. Also useful if you have someone else review your modules.
 
 ### Go to a module
@@ -141,7 +141,7 @@ Example:
 A p341 i10013 [SEE BLENDER] [SEE FRIDGE] [GET OUT] [SEE INVENTORY] m24 m25 m17 m77
 ```
 
-The next functions ones do the same as their non-instant counterpart, but they read the text without any delay between characters.
+The next functions do the same as their non-instant counterpart, but they read the text without any delay between characters.
 
 ```
 'X' // 3 options, instant display.
@@ -150,6 +150,7 @@ The next functions ones do the same as their non-instant counterpart, but they r
 ### Random-based functions
 
 Reads a text+image section depending on a number randomly generated between 0 and 100.
+
 Example: 
 ```
 R 50 p617 i30 p622 i33
@@ -177,6 +178,7 @@ Example:
 #### Set the value of an object
 
 An object can only take 1 or 0 as a value. 1 is true (in inventory), 0 is false (not in inventory). 
+
 Syntax:
 ```
 O o%id_object v%value_object
@@ -190,12 +192,14 @@ O o17 v0
 ### Check for event values
 
 Goes to module m if event e has the value v.
+
 Example:
 ```
 Q e14 v1 m87
 ```
 
 Reads a text+image section or an other depending on if an event is false or true.
+
 Exemple: 
 ```
 U e13 0 p200 i61 1 p201 i61
@@ -210,6 +214,7 @@ N e15 AND e17 m112
 ### Check for inventory values
 
 Goes to module m if object o has the value v
+
 Example:
 ```
 H o14 v1 m87
