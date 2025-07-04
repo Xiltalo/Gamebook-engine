@@ -1,15 +1,28 @@
 :0: intro
+
+# Gives the player a choice.
+# Writes entry 1 from script and displays image 0.
+# Goes to module 1 or 2 depending on the choice.
+
 D p1 i0 [LEFT] [RIGHT] m1 m2
 $
 :1: left (treasure)
+
+# Reads from the script and displays an image
+
 Z i2 p3
+
+# after, go to module 3
+
 M 3
 $
 :2: right (death)
 Z i1 p2
-M 3
+M 3 
 $
 :3: the end
-P 4
+
+# just reads from the script file, no image
+P 4 
 $
 :-1: end of file marker
