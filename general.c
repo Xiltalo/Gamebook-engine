@@ -81,7 +81,8 @@
 #define SAVING 'V'      // sauvegarde la progression
 #define GOTOMODULE 'M'  // rembobine le fichier, cherche le module indiqué et commence la lecture | format : M %id_module
 #define FINMODULE '$'   // ce symbole ne devrait pas être lu : on passe à un autre module avant. si il est atteint, faire apparaître un message d'erreur, puis quitter le programme
-#define RANDOMSCENE 'R' // joue une scène ou une autre selon un tirage aléatoire (à implémenter)
+#define RANDOMSCENE 'R' // joue une scène ou une autre selon un tirage aléatoire
+#define RANDOMMODULE 'L' // va vers le module 1 si le tirage aléatoire est réussi, vers le module 2 sinon
 #define FIGHT 'F'       // démarre le combat de numéro donné | format : F 30
 #define COMMENTAIRE '#' // le lecteur de module ignorera la ligne à partir de ce caractère
 #define EVENTANDEVENT 'N' // vérifie la condition event1 ET event2, et envoie vers un module si la condition est remplie
@@ -225,7 +226,7 @@ void LirePassageInstantane(int scene_id, char *filename)
             }
             else if (c== REFRESHCHAR)
             {
-
+                
             }
             else
             {
@@ -250,7 +251,7 @@ void LirePassageInstantane(int scene_id, char *filename)
 void LireImage(int scene_id, char *filename)
 {
     srand(time(NULL)); // initiaise le générateur de nombre aléatoire
-
+    
     FILE *f;
     f = fopen(filename, "r");
 
@@ -1402,6 +1403,26 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
                 else
                     LireScene2(id_image2, id_passage2, IMAGES, SCRIPT);
             }
+            else if (c == RANDOMMODULE)
+            {
+                fscanf(f, " %d m%d m%d", &random, &id_module1, &id_module2);
+                if (rand()%100 <= random)
+                {
+                    id_module = id_module1;
+                }
+                else
+                    id_module = id_module2;
+                rewind(f);              // permet de revenir au début du fichier
+                fscanf(f, ":%d:", &id); // cherche le bon module
+                skipUntilChar(f, '\n'); // skips module title/description
+                while (id != id_module && id != ID_END)
+                {
+                    skipUntilChar(f, FINMODULE);
+                    skipUntilChar(f, '\n');
+                    fscanf(f, ":%d:", &id);
+                    skipUntilChar(f, '\n');
+                }
+            }
             else if (c == EVENTANDEVENT)
             {
                 fscanf(f, " %c%d AND %c%d m%d", &chr1, &id_event, &chr2, &id_passage1, &id_module1);
@@ -1450,7 +1471,6 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
             c = fgetc(f);
         }
 
-        printf("\n\nExit program\n");
         pressEnter();
     }
     else
