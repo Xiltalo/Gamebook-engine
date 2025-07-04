@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
+
+// changements pour la compilation sous windows. fonctions alternatives pour windows, etc.
 #ifdef _WIN32
 #include <Windows.h>
 #include <conio.h>
@@ -179,7 +181,7 @@ void LirePassage(int scene_id, char *filename)
     }
     else
     {
-        printf("\nerreur, fichier non trouvé :");
+        printf("\nerror, file not found :");
         printf("%s", filename);
         printf("\n");
     }
@@ -237,7 +239,7 @@ void LirePassageInstantane(int scene_id, char *filename)
     }
     else
     {
-        printf("\nerreur, fichier non trouvé :");
+        printf("\nerror, file not found :");
         printf("%s", filename);
         printf("\n");
     }
@@ -277,7 +279,7 @@ void LireImage(int scene_id, char *filename)
     }
     else
     {
-        printf("\nerreur, fichier non trouvé : ");
+        printf("\nerror, file not found :");
         printf("%s", filename);
         printf("\n");
     }
@@ -355,7 +357,7 @@ void LireScene2(int id_image, int scene_id, char *file_image, char *file_text)
     }
     else
     {
-        printf("\nerreur, fichier non trouvé : ");
+        printf("\nerror, file not found :");
         printf("%s", file_text);
         printf("\n");
     }
@@ -578,7 +580,7 @@ int MenuChoixLinux(char * str1, char * str2, char *textfile, int id_text, char *
 
     LireImage(id_image, imagefile);
     LirePassage(id_text, textfile);
-    printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoix : ", str1, str2);
+    printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoice : ", str1, str2);
     char verif = 0;
     while (!verif)
     {
@@ -598,7 +600,7 @@ int MenuChoixLinux(char * str1, char * str2, char *textfile, int id_text, char *
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoix : ", str1, str2);
+            printf("\n\n   1 : | %s |\n   2 : | %s |    \n\nchoice : ", str1, str2);
             fflush(stdin);
         }
     }
@@ -621,7 +623,7 @@ int MenuFourcheLinux(char * str1, char * str2, char * str3, char *textfile, int 
         LirePassageInstantane(id_text, textfile);
     else LirePassage(id_text, textfile);
 
-    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoix : ", str1, str2, str3);
+    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoice : ", str1, str2, str3);
     char verif = 0;
     while (!verif)
     {
@@ -645,7 +647,7 @@ int MenuFourcheLinux(char * str1, char * str2, char * str3, char *textfile, int 
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoix : ", str1, str2, str3);
+            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |    \n\nchoice : ", str1, str2, str3);
             fflush(stdin);
         }
     }
@@ -667,7 +669,7 @@ int MenuQuatreLinux(char * str1, char * str2, char * str3, char * str4, char *te
         LirePassageInstantane(id_text, textfile);
     else LirePassage(id_text, textfile);
 
-    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
+    printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
     char verif = 0;
     while (!verif)
     {
@@ -695,7 +697,7 @@ int MenuQuatreLinux(char * str1, char * str2, char * str3, char * str4, char *te
             system(CLEAR);
             LireImage(id_image, imagefile);
             LirePassageInstantane(id_text, textfile);
-            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
+            printf("\n\n   1 : | %s |\n   2 : | %s |\n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
             fflush(stdin);
         }
     }
@@ -797,10 +799,10 @@ void AfficherObjet( int id_objet, char* objets_file)
         }
         else
         {
-            printf("erreur, objet non trouvé");
+            printf("error, object not found");
         }
     }
-    else printf("erreur : fichier non trouvé : %s", objets_file);
+    else printf("error, file not found : %s", objets_file);
 
     fclose(f);
 }
@@ -833,12 +835,12 @@ void ConsulterInventaire(char * inventaire)
     while (reponse != 1) // le menu continue tant que le joueur n'a pas choisi de sortir du menu
     {
         //while ((c = getchar()) != '\n' && c != EOF){}
-        system(CLEAR);
-        printf("\n\n\n\n\n\n\n\n               OBJETS EN VOTRE POSSESSION               ");
-        printf("\n--------------------------------------------------------\n                     OBJET %d :\n",i+1);                    
-        AfficherObjet(true_inventaire[i], OBJETS);
-        printf("\n--------------------------------------------------------\n1 : | Objet Précédent |           2 : | Objet Suivant |\n3 : | Quitter le menu |\n\nChoix: ");
-        fflush(stdin);
+                system(CLEAR);
+                printf("\n\n\n\n\n\n\n\n               OWNED OBJECTS               ");
+                printf("\n\n\n\n\n\n\n\n--------------------------------------------------------\n                     OBJET %d :\n",i+1);                    
+                AfficherObjet(true_inventaire[i], OBJETS);
+                printf("\n--------------------------------------------------------\n1 : | Previous Object |           2 : | Next Object |\n3 : | Quit the menu |\n\nChoice: ");
+                fflush(stdin);
         char verif = 0;
         while (!verif)
         {
@@ -865,7 +867,7 @@ void ConsulterInventaire(char * inventaire)
                 system(CLEAR);
                 printf("\n\n\n\n\n\n\n\n--------------------------------------------------------\n                     OBJET %d :\n",i+1);                    
                 AfficherObjet(true_inventaire[i], OBJETS);
-                printf("\n--------------------------------------------------------\n1 : | Objet Précédent |           2 : | Objet Suivant |\n3 : | Quitter le menu |\n\nChoix: ");
+                printf("\n--------------------------------------------------------\n1 : | Previous Object |           2 : | Next Object |\n3 : | Quit the menu |\n\nChoice: ");
                 fflush(stdin);
             }
         }
@@ -952,9 +954,9 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                     LireImage(i0, IMAGES);
                     LirePassageInstantane(p0, SCRIPT);
                     printf("\n--------------------------------------------------------\n");
-                    printf("               Crédibilité : %d%%", cred);
+                    printf("               Credibility : %d%%", cred);
                     printf("\n--------------------------------------------------------\n");
-                    printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
+                    printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
                     char verif = 0;
                     while (!verif)
                     {
@@ -996,9 +998,9 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                             LireImage(i0, IMAGES);
                             LirePassageInstantane(p0, SCRIPT);
                             printf("\n--------------------------------------------------------\n");
-                            printf("               Crédibilité : %d%%", cred);
+                            printf("               Credibility : %d%%", cred);
                             printf("\n--------------------------------------------------------\n");
-                            printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoix : ", str1, str2, str3, str4);
+                            printf("\n   1 : | %s |\n   2 : | %s |    \n   3 : | %s |\n   4 : | %s |    \n\nchoice : ", str1, str2, str3, str4);
                             fflush(stdin);
                         }
                     }
@@ -1018,7 +1020,7 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                         LireImage(i0, IMAGES);
                         LirePassage(p0, SCRIPT);
                         printf("\n--------------------------------------------------------\n");
-                        printf("               Crédibilité : %d%%", cred);
+                        printf("               Credibility : %d%%", cred);
                         printf("\n--------------------------------------------------------\n");
                     }
 
@@ -1040,10 +1042,10 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                     LireImage(i0, IMAGES);
                     LirePassageInstantane(p0, SCRIPT);
                     printf("\n--------------------------------------------------------\n");
-                    printf("               Crédibilité : %d%%", cred);
-                    printf("\n--------------------------------------------------------\n                     OBJET %d :\n",i+1);                    
+                    printf("               Credibility : %d%%", cred);
+                    printf("\n--------------------------------------------------------\n                     OBJECT %d :\n",i+1);                    
                     AfficherObjet(true_inventaire[i], OBJETS);
-                    printf("\n--------------------------------------------------------\n1 : | Objet Précédent |           2 : | Objet Suivant |\n3 : | Choisir |                   4 : | Abandonner |\n\nChoix: ");
+                    printf("\n--------------------------------------------------------\n1 : | Next Object |           2 : | Previous Object |\n3 : | Choose |                   4 : | Yield |\n\nChoix: ");
 
                     char verif = 0;
                     while (!verif)
@@ -1099,10 +1101,11 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
                             LireImage(i0, IMAGES);
                             LirePassageInstantane(p0, SCRIPT);
                             printf("\n--------------------------------------------------------\n");
-                            printf("               Crédibilité : %d%%", cred);
-                            printf("\n--------------------------------------------------------\n                     OBJET %d :\n",i+1);
+                            printf("               Credibility : %d%%", cred);
+                            printf("\n--------------------------------------------------------\n                     OBJECT %d :\n",i+1);                    
                             AfficherObjet(true_inventaire[i], OBJETS);
-                            printf("\n--------------------------------------------------------\n1 : | Objet Précédent |           2 : | Objet Suivant |\n3 : | Choisir |                  4 : | Abandonner |\n\nChoix: ");
+                            printf("\n--------------------------------------------------------\n1 : | Next Object |           2 : | Previous Object |\n3 : | Choose |                   4 : | Yield |\n\nChoix: ");
+
                             fflush(stdin);
                         }
                     }
@@ -1115,7 +1118,7 @@ int LireCombat(char *combatfile, int id_combat, char * inventaire)
     }
     else
     {
-        printf("\nerreur, fichier non trouvé :");
+        printf("\nerror, file not found :");
         printf("%s", COMBATS);
         printf("\n");
     }
@@ -1452,7 +1455,7 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
     }
     else
     {
-        printf("\nerreur, fichier non trouvé :");
+        printf("\nerror, file not found :");
         printf("%s", modules_file);
         printf("\n");
     }
