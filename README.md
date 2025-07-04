@@ -300,4 +300,6 @@ You can compile from this repository and see for yourself ! if you don't care ab
 ![alt text](./screenshots/5.png "screenshot 5")
 ![alt text](./screenshots/6.png "screenshot 6")
 
+## We can go even further.
 
+For a comprehensive overview of all the functions you can put in the `modules.txt` file, please see the [detailed documentation](./module_functions.md)

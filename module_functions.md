@@ -1,6 +1,6 @@
 # Detailed Documentation
 
-This file will explain the syntax and usage of each main file necessary for the engine to run.
+This file will explain the syntax and usage of each main file necessary for the engine to run. It is recommended to have read the example detailed in README.md in order to better understand this documentation.
 
 ## images.txt
 
@@ -68,13 +68,13 @@ For example, consider the following sentence :
 
 "Hello \`\`\`\` ...Goodbye."
 
-The engine will read "Hello" then pause for a duration of four times the reading delay, before printing the "Goodbye".
+The engine will read "Hello" then pause for a duration of four times the reading delay, before printing the "...Goodbye".
 For examples of the CHANGEIMAGE character, see the `script.txt` of the Example Adventure.
 
 ## modules.txt
 
-This is by far the most complex one, because of the wide number of functions, and the less-than-friendly syntax
-Each module starts with an id, like in `images.txt` and `script.txt`. A module ends with the "$" character. the next module :id: must be on the very next line after the "$" character.
+This is by far the most complex file, because of its wide number of functions, and their sometimes less-than-friendly syntax.
+Each module starts with an id, like in `images.txt` and `script.txt`. A module ends with the "$" character. the next module \:id\: must be on the very next line after the "$" character.
 In most places, you can add commentaries for your file. a commentary starts with the "#" character. It is useful to reread yourself and work more efficiently. Also useful if you have someone else review your modules.
 
 ### Go to a module
@@ -96,7 +96,7 @@ There are several functions for reading text, but only this one is really worth 
 
 Syntax : 
 ```
-Z i%id\_image p%id\_passage
+Z i%id_image p%id_passage
 ```
 Example:
 ```
@@ -114,7 +114,8 @@ Syntax:
 C p%id_text_prompt i%id_image_prompt [text choice 1] [text choice 2] 1 p%id_text_if_choice_1 i%id_image_if_choice_1 2 p%id_text_if_choice_2 i%id_image_if_choice_2
 ```
 Example:
-```C p100 i10 [YES] [NO] 1 p102 i10 2 p101 i10
+```
+C p100 i10 [YES] [NO] 1 p102 i10 2 p101 i10
 ```
 
 These ones point to a different module depending on the choice.
@@ -135,15 +136,17 @@ Y p341 i10013 [SEE BLENDER] [SEE FRIDGE] [GET OUT] m24 m25 m17
 ```
 
 #### Four options
+Example:
 ```
 A p341 i10013 [SEE BLENDER] [SEE FRIDGE] [GET OUT] [SEE INVENTORY] m24 m25 m17 m77
 ```
 
-These ones do the same as their non-instant counterpart, but they read the text without any delay between characters.
+The next functions ones do the same as their non-instant counterpart, but they read the text without any delay between characters.
 
+```
 'X' // 3 options, instant display.
 'W' // 4 options, instant display.
-
+```
 ### Random-based functions
 
 Reads a text+image section depending on a number randomly generated between 0 and 100.
@@ -161,7 +164,7 @@ Goes tp the first module if the number is below 50, the second one if it is abov
 
 The random number generator is seeded with the time at which the program starts. It isn't truly random since it is time-based, but it also doesn't really *need* to be.
 
-### set events and object values 
+### Set events and object values 
 
 #### Set the value of an event
 
@@ -176,13 +179,13 @@ Example:
 An object can only take 1 or 0 as a value. 1 is true (in inventory), 0 is false (not in inventory). 
 Syntax:
 ```
-E e%id_object v%value_object
+O o%id_object v%value_object
 ```
 Example:
 ```
 O o17 v0
 ``` 
-you remove object 17 from the inventory
+"You remove object 17 from the inventory"
 
 ### Check for event values
 
@@ -209,7 +212,7 @@ N e15 AND e17 m112
 Goes to module m if object o has the value v
 Example:
 ```
-Q e14 v1 m87
+H o14 v1 m87
 ```
 
 ### Inventory management
@@ -242,4 +245,9 @@ The format for each object is:
 `:id:name;description$`
 
 The name cannot be more than 100 characters. The description must be below 500 characters.
+
+
+## Going even further...?
+
+There is a "fighting" system implemented which works very well, but it was designed for a specific game. If you want to use it at this stage, I recommand reading the code and figuring this out on your own. 
 
