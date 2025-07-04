@@ -1447,7 +1447,7 @@ void lireModule(int id_module, char *modules_file, char *images_file, char *text
             c = fgetc(f);
         }
 
-        printf("\n\nfin de branche atteinte\n");
+        printf("\n\nExit program\n");
         pressEnter();
     }
     else
