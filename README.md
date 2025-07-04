@@ -76,7 +76,7 @@ As you can see, the file follows a certain format. The end of the image is detec
 Now, we will edit the "module" file so that the program executes the correct actions.
 Let's put it all together !
 
-### module.txt
+### modules.txt
 ```
 :0: intro
 
