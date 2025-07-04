@@ -1,0 +1,14 @@
+this file is not essential for the game to function. However, it is recommended in order to keep track of the events and objects, and their IDs.
+
+events
+
+0 : having opened the chest
+1 : you have seen the three doors once
+
+
+
+
+
+objects
+
+0 : key

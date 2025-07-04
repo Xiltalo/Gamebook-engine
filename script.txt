@@ -1,13 +1,64 @@
 :1: intro
-You are an adventurer. You are in quest of glory and trasure ! You are walking on a path, waiting for adventure to meet you. You stop as you come accross a fork in your path. Will you go right or go left ?
+You are an adventurer. You are in quest of glory and treasure ! You are walking on a path, waiting for adventure to meet you. You stop as you come accross a fork in your path. Will you go right or go left ?
 ~
 :2: right - instant death
 You head right, confident in your sense of direction. Suddenly, you hear something rusting in the bushes. Before you can react, a lion jumps out from the side of the road and kills you instantly. You die.
 ~
 :3: left - cool treasure
-You head left. On the road you stumble upon an old-looking chest. You open it and see that it is filled with treasure. Hooray ! You can retire and leave this dangerous life behind you !
+You head left. On the road you stumble upon an old-looking chest
 ~
-:4: "the end"
+:4: chest, open it ?
+Do you open the chest ?
+~
+:5: chest, open it ? -- NO
+You choose not to open the chest and move forward.
+~
+:6: chest, open it ? -- YES
+You open the chest. Inside, there is a key. You take it.#(You now have a KEY.)
+~
+:7: "the end"
+
+
+
 THE END
+~
+:8: Three doors. On the road
+You keep walking until you face a gigantic wall. In front of you are three doors. On each door is written something. you hear a whisper : "One door lies, two tell the truth."
+~
+:9: Three doors. which to chose ?
+One door lies, two tell the truth.
+~
+:10: Three doors. left door
+On the door is written : "The treasure is behind this door. You can try any door safely."
+~
+:11: Three doors. middle door
+On the door is written : "Bro the door left of me is totally lying. Seriously don't trust that one."
+~
+:12: Three doors. right door
+On the door is written : "The treasure is behind this door. There is death behind the others."
+~
+:13: Three doors. what do you do ?
+You can inspect the doors
+~
+:14: Three doors. No key 
+You try to open the door, but you don't have a key... If only you could go back... To some place where there might have been a key... Maybe inside something...
+~
+:15: Three doors. enter the left door.
+You use the key to enter.#The door locks itself behind you. In front of you is a long hallway. There is nowhere to go but forward. You start walking.
+~
+:16: Three doors. walk in the left door.
+You keep walking.
+~
+:17: Three doors. left door -- death by hunger
+You're starving. You faint and... Die._1#
+~
+:18: Three doors. middle door -- instant death.
+You use the key to open the door and go through confidently.#Unfortunately, there is no floor and you fall to your death._1#Sorry.
+~
+:19: Three doors. the right door is the right door. duh.
+You use the key open the door and go through confidently._2#In front of you is a treasure chest ! You now have enough money to retire and leave this dangerous life behind you.#Congratulations !
+~
+:20: silence
+...
 ~
 :-1: end of file marker
