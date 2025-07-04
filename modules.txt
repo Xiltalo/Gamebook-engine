@@ -1,12 +1,15 @@
 :0: intro
 D p1 i0 [LEFT] [RIGHT] m1 m2
 $
-:1: left
-P 3
-P 4
+:1: left (treasure)
+Z i2 p3
+M 3
 $
-:2: right
-P 2
+:2: right (death)
+Z i1 p2
+M 3
+$
+:3: the end
 P 4
 $
 :-1: end of file marker
