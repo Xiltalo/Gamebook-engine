@@ -45,16 +45,16 @@
 #define COMBATS "combats.txt"
 
 // #define LINESIZE 200
-// caractères spéciaux pour lecture passages
+// special characters for script reading
 
-#define DOUBLESPEED '/' // multiplie speed par deux
-#define HALFSPEED '^'   // divise speed par deux
-#define LINEJUMP '|'    // se traduit par un saut de ligne
-#define WAITCHAR '`'    // sleep(speed)
-#define REFRESHCHAR '#' // ce caractère recharge l'écran avec la même image
-#define CHANGEIMAGE '_' // seulement pour lecturescène 2, change l'image affichée par l'image indiquée ex: _101
-#define FINPASSAGE '~'  // le lecteur détecte la fin du passage et ferme le fichier
-#define ID_END -1
+#define DOUBLESPEED '/' // multiplies delay by 2
+#define HALFSPEED '^'   // divides delay by 2
+#define LINEJUMP '|'    // does a line jump
+#define WAITCHAR '`'    // sleep(delay). pauses for the duration of the delay
+#define REFRESHCHAR '#' // Prompts the user to press enter before displaying the rest. Refreshes the image if there is one
+#define CHANGEIMAGE '_' // Only if there is an image, changes the image. syntax : _14 to change the displayed image to image 14. the change will appear when the image is refreshed.
+#define FINPASSAGE '~'  // the engine stops reading and closes the file.
+#define ID_END -1 // the the engine reads a segment of id "-1" it will display an error message.
 
 // caractère spécial pour lecture image
 #define ENDIMAGE '$'
@@ -68,8 +68,8 @@
 #define CHOIX2 'D'      // ce choix amène à un module différent selon le choix
 #define CHOIX3 'Y'      // comme choix 2, mais avec 3 options à la place de 2
 #define CHOIX3INSTANT 'X' // comme choix 3 mais affiche l'image instantanément
-#define CHOIX4INSTANT 'W' // comme choix 3 mais affiche l'image instantanément
-#define CHOIX4 'A' // comme choix 3 mais affiche l'image instantanément
+#define CHOIX4INSTANT 'W' // comme choix 4 mais affiche l'image instantanément
+#define CHOIX4 'A' // a choice menu with 4 options
 #define EVENT 'E'       // change le statut de l'évènement en '1'. cela permet de savoir si quelque chose s'est produit.
 #define OBJET 'O'       // change le statut de l'objet en '0' ou '1' cela permet de retirer ou donner un objet au joueur.
 #define CHECKEVENT2 'Q' // verifie si un évenement s'est produit. si oui, envoie vers un module donné

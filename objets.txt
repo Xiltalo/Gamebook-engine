@@ -1,0 +1,2 @@
+:0:Key;Found in a chest. What does it open ?.$
+:-1:
