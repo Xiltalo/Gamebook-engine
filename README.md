@@ -13,7 +13,7 @@ Let's make a simple adventure. It will have the following structure :
 you are an adventurer on a road and you get to a fork in the path. If you go right you die instantly, killed by a lion. If you go left you find a cool treasure.
 
 let's put it in practice.
-first, we'll write the next needed for the adventure :
+first, we'll write the text needed for the adventure :
 
 
 
@@ -112,7 +112,7 @@ As you can see, in each modules functions will be executed, such as "read text" 
 These funtions are differentiated by letters and a certain syntax.
 For example : 
 `D p1 i0 [LEFT] [RIGHT] m1 m2`
-reads text of id 1 with the image 0 and prompts the user for a choice. Depending on the choice, the engine reads either module 1 or module 2 next.
+reads text of id 1 with the image 0 and prompts the user for a choice. Depending on the choice (left or right), the engine reads either module 1 or module 2 next.
 
 Alright, let's compile ! The ideal environment is Linux. I made adjustments so that the code can be compiled on Windows, and it works well but it hasn't been tested as extensively as in Linux.
 

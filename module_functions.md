@@ -90,9 +90,20 @@ Exemple :
 M 3
 ```
 
+### Save
+
+Syntax :
+```
+V
+```
+
+That's right, it's a single letter! Upon encountering this letter, the engine will record the current module id as well as the current events and inventory into a file called `save.txt`.
+
+If this file exists in the directory when the program is launched, the engine will pick up the needed information from the file and load the player at the correct module with the same inventory and events.
+
 ### Read text
 
-There are several functions for reading text, but only this one is really worth using because it implements the posibility to refresh the displayed image and read a text segment bit by bit with the special character "#"
+There are several functions for reading text, but only this one is really worth using because it implements the possibility to refresh the displayed image and read a text segment bit by bit with the special character "#"
 
 Syntax : 
 ```
@@ -108,7 +119,7 @@ Z i1 p2
 These functions display a choice menu to the user.
 
 This one displays a different set of text+image depending on the choice.
-\#define CHOIX1 'C'
+
 Syntax:
 ```
 C p%id_text_prompt i%id_image_prompt [text choice 1] [text choice 2] 1 p%id_text_if_choice_1 i%id_image_if_choice_1 2 p%id_text_if_choice_2 i%id_image_if_choice_2
@@ -161,7 +172,7 @@ Goes to a module or another depending on a random number.
 ```
 L 15 m13 m12
 ```
-Goes tp the first module if the number is below 50, the second one if it is above.
+Goes to the first module if the number is below 50, the second one if it is above.
 
 The random number generator is seeded with the time at which the program starts. It isn't truly random since it is time-based, but it also doesn't really *need* to be.
 
@@ -171,9 +182,13 @@ The random number generator is seeded with the time at which the program starts.
 
 An event can only take 1 or 0 as a value. 1 is true, 0 is false. 
 Syntax:
-`E e%id_event v%value_event`
+```
+E e%id_event v%value_event
+```
 Example:
-`E e62 v1`
+```
+E e62 v1
+```
 
 #### Set the value of an object
 

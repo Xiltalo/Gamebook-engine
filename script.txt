@@ -5,7 +5,7 @@ You are an adventurer. You are in quest of glory and treasure ! You are walking 
 You head right, confident in your sense of direction. Suddenly, you hear something rusting in the bushes. Before you can react, a lion jumps out from the side of the road and kills you instantly. You die.
 ~
 :3: left - cool treasure
-You head left. On the road you stumble upon an old-looking chest
+You head left. On the road you stumble upon an old-looking chest.
 ~
 :4: chest, open it ?
 Do you open the chest ?
