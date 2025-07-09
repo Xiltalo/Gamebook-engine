@@ -116,7 +116,7 @@ reads text of id 1 with the image 0 and prompts the user for a choice. Depending
 
 Alright, let's compile ! The ideal environment is Linux. I made adjustments so that the code can be compiled on Windows, and it works well but it hasn't been tested as extensively as in Linux.
 
-To compile, simply enter either the command `make`, or `gcc -o GAME ./src/Combats.c  ./src/Images.c  ./src/Main.c  ./src/Menus.c  ./src/Modules.c  ./src/Scripts.c -I "./include/"` in the terminal, if the `make` commande does not work.
+To compile, simply enter either the command `make`, or `gcc -o GAME ./src/*.c -I "./include/` in the terminal, if the `make` commande does not work.
 If you do not have gcc, then install it or use any other tool you might prefer. 
 
 Then you can click on the executable "GAME" or "GAME.exe" , or execute it from the terminal directly.
