@@ -3,7 +3,7 @@ I wanted to make a game where the player gets to make a great variety of choices
 That's how this engine was born.
 
 This project is inspired by [gamebooks](https://en.wikipedia.org/wiki/Gamebook) 
-The `module.txt` file will tell the program what module to read. In a gamebook you would have something like "if you go right then go to page 14; if you decide to head to the left then go to page 32.". The `module.txt` file does essentially the same.
+The `module.txt` file will tell the program what module to read. In a gamebook you would have something like "if you go right then go to page 14; if you decide to head to the left then go to page 32.". The `module.txt` file does essentially the same. You will find all the files you need to edit in the `files/` directory.
 
 I think an example is the best way to demonstrate the principle of this (modest) game engine, so I will show you the absolute basics to make your own adventure
 
@@ -116,10 +116,10 @@ reads text of id 1 with the image 0 and prompts the user for a choice. Depending
 
 Alright, let's compile ! The ideal environment is Linux. I made adjustments so that the code can be compiled on Windows, and it works well but it hasn't been tested as extensively as in Linux.
 
-To compile, simply enter the command `gcc general.c -o GAME`
-If you do not have gcc, then install it or use any other tool you might prefer.
+To compile, simply enter either the command `make`, or `gcc -o GAME ./src/Combats.c  ./src/Images.c  ./src/Main.c  ./src/Menus.c  ./src/Modules.c  ./src/Scripts.c -I "./include/"` in the terminal, if the `make` commande does not work.
+If you do not have gcc, then install it or use any other tool you might prefer. 
 
-Then you can click on it, or execute it from the terminal directly.
+Then you can click on the executable "GAME" or "GAME.exe" , or execute it from the terminal directly.
 
 ### What it looks like 
 

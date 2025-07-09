@@ -51,7 +51,7 @@ There are several **special characters** that influence how the text is displaye
 
 The text is displayed to the user character by character. There is a set delay between each character. The shorter this delay, the faster the text displays.
 
-from the `general.c` file :
+from the `Scripts.h` file :
 ```
 #define DOUBLESPEED '/' // multiplies delay by 2
 #define HALFSPEED '^'   // divides delay by 2
